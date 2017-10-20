@@ -34,9 +34,9 @@
     <description>Apache Sling Context-Aware Configuration SPI</description>
 
     <scm>
-        <connection>scm:svn:http://svn.apache.org/repos/asf/sling/trunk/bundles/extensions/caconfig/spi</connection>
-        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/sling/trunk/bundles/extensions/caconfig/spi</developerConnection>
-        <url>http://svn.apache.org/viewvc/sling/trunk/bundles/extensions/caconfig/spi</url>
+        <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-caconfig-spi.git</conncetion>
+        <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-caconfig-spi.git</developerConnection>
+        <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-caconfig-spi.git</url>
     </scm>
     
     <build>
