@@ -20,10 +20,9 @@ package org.apache.sling.caconfig.spi;
 
 import java.util.Iterator;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.Resource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -39,6 +38,6 @@ public interface ConfigurationInheritanceStrategy {
      *     First resource is the "closest" match, the other resources may be used to inherit from.
      * @return Inherited resource or null if this strategy does not support the given resources
      */
-    @CheckForNull Resource getResource(@Nonnull Iterator<Resource> configResources);
+    @Nullable Resource getResource(@NotNull Iterator<Resource> configResources);
 
 }

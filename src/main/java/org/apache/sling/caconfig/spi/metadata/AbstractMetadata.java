@@ -20,7 +20,7 @@ package org.apache.sling.caconfig.spi.metadata;
 
 import java.util.Map;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Common properties for configuration and properties.
@@ -32,7 +32,7 @@ abstract class AbstractMetadata<T> {
     private String description;
     private Map<String,String> properties;
 
-    public AbstractMetadata(@Nonnull String name) {
+    public AbstractMetadata(@NotNull String name) {
         if (name == null) {
             throw new IllegalArgumentException("Invalid name: " + name);
         }
@@ -42,7 +42,7 @@ abstract class AbstractMetadata<T> {
     /**
      * @return Parameter name
      */
-    public @Nonnull String getName() {
+    public @NotNull String getName() {
         return this.name;
     }
     

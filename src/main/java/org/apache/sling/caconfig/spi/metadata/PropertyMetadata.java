@@ -23,9 +23,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-
 import org.apache.commons.lang3.ClassUtils;
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -60,7 +59,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
      * @param type Property type
      */
     @SuppressWarnings("unchecked")
-    public PropertyMetadata(@Nonnull String name, @Nonnull Class<T> type) {
+    public PropertyMetadata(@NotNull String name, @NotNull Class<T> type) {
         super(name);
         Class<T> convertedType = (Class<T>)typeToPrimitive(type);
         if (!isSupportedType(convertedType)) {
@@ -74,7 +73,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
      * @param defaultValue Default value (also defines property type)
      */
     @SuppressWarnings("unchecked")
-    public PropertyMetadata(@Nonnull String name, @Nonnull T defaultValue) {
+    public PropertyMetadata(@NotNull String name, @NotNull T defaultValue) {
         this(name, (Class<T>)defaultValue.getClass());
         this.defaultValue = defaultValue;
     }
@@ -131,7 +130,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
     /**
      * @return Parameter type
      */
-    public @Nonnull Class<T> getType() {
+    public @NotNull Class<T> getType() {
         return this.type;
     }
 

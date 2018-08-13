@@ -18,11 +18,10 @@
  */
 package org.apache.sling.caconfig.spi;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -40,7 +39,7 @@ public interface ConfigurationPersistenceStrategy {
      * @param resource Configuration resource
      * @return Transformed configuration resource. If null is returned this strategy does not support the given configuration resource.
      */
-    @CheckForNull Resource getResource(@Nonnull Resource resource);
+    @Nullable Resource getResource(@NotNull Resource resource);
     
     /**
      * Allows the strategy to transform the given configuration resource path according to it's persistent strategies,
@@ -48,7 +47,7 @@ public interface ConfigurationPersistenceStrategy {
      * @param resourcePath Configuration resource path or part of it (e.g. config name)
      * @return Transformed configuration resource path. If null is returned this strategy does not support the given configuration resource path.
      */
-    @CheckForNull String getResourcePath(@Nonnull String resourcePath);
+    @Nullable String getResourcePath(@NotNull String resourcePath);
     
     /**
      * Stores configuration data for a singleton configuration resource.
@@ -59,8 +58,8 @@ public interface ConfigurationPersistenceStrategy {
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean persistConfiguration(@Nonnull ResourceResolver resourceResolver,
-            @Nonnull String configResourcePath, @Nonnull ConfigurationPersistData data);
+    boolean persistConfiguration(@NotNull ResourceResolver resourceResolver,
+            @NotNull String configResourcePath, @NotNull ConfigurationPersistData data);
     
     /**
      * Stores configuration data for a configuration resource collection.
@@ -72,8 +71,8 @@ public interface ConfigurationPersistenceStrategy {
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean persistConfigurationCollection(@Nonnull ResourceResolver resourceResolver,
-            @Nonnull String configResourceCollectionParentPath, @Nonnull ConfigurationCollectionPersistData data);
+    boolean persistConfigurationCollection(@NotNull ResourceResolver resourceResolver,
+            @NotNull String configResourceCollectionParentPath, @NotNull ConfigurationCollectionPersistData data);
  
     /**
      * Delete configuration or configuration collection data from repository using the inner-most context path as reference.
@@ -82,6 +81,6 @@ public interface ConfigurationPersistenceStrategy {
      * @return true if the data was delete. false if deleting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean deleteConfiguration(@Nonnull ResourceResolver resourceResolver, @Nonnull String configResourcePath);
+    boolean deleteConfiguration(@NotNull ResourceResolver resourceResolver, @NotNull String configResourcePath);
     
 }

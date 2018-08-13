@@ -21,10 +21,9 @@ package org.apache.sling.caconfig.resource.spi;
 import java.util.Collection;
 import java.util.Iterator;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.Resource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -48,7 +47,7 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Configuration resource or {@code null} if this strategy did not found matching resources.
      */
-    @CheckForNull Resource getResource(@Nonnull Resource resource, @Nonnull Collection<String> bucketNames, @Nonnull String configName);
+    @Nullable Resource getResource(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get a collection of context-aware configuration resources defined by the given configuration name.
@@ -58,7 +57,7 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Collection of configuration resources or {@code null} if this strategy did not found matching resources.
      */
-    @CheckForNull Collection<Resource> getResourceCollection(@Nonnull Resource resource, @Nonnull Collection<String> bucketNames, @Nonnull String configName);
+    @Nullable Collection<Resource> getResourceCollection(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get a context-aware singleton configuration resource inheritance chain defined by the given configuration name.
@@ -69,7 +68,7 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Configuration resource inheritance chain or {@code null} if this strategy did not found matching resources.
      */
-    @CheckForNull Iterator<Resource> getResourceInheritanceChain(@Nonnull Resource resource, @Nonnull Collection<String> bucketNames, @Nonnull String configName);
+    @Nullable Iterator<Resource> getResourceInheritanceChain(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get a collection of context-aware configuration resource inheritance chains defined by the given configuration name.
@@ -80,7 +79,7 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Collection of configuration resource inheritance chains or {@code null} if this strategy did not found matching resources.
      */
-    @CheckForNull Collection<Iterator<Resource>> getResourceCollectionInheritanceChain(@Nonnull Resource resource, @Nonnull Collection<String> bucketNames, @Nonnull String configName);
+    @Nullable Collection<Iterator<Resource>> getResourceCollectionInheritanceChain(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get the configuration resource path for storing configuration data for the given context resource and configuration name.
@@ -93,7 +92,7 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Resource path, or null if no matching configuration resource path can be determined
      */
-    @CheckForNull String getResourcePath(@Nonnull Resource resource, @Nonnull String bucketName, @Nonnull String configName);
+    @Nullable String getResourcePath(@NotNull Resource resource, @NotNull String bucketName, @NotNull String configName);
 
     /**
      * Get the configuration resource collection parent path for storing configuration data for the given context resource and configuration name.
@@ -106,6 +105,6 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Resource path, or null if no matching configuration resource path can be determined
      */
-    @CheckForNull String getResourceCollectionParentPath(@Nonnull Resource resource, @Nonnull String bucketName, @Nonnull String configName);
+    @Nullable String getResourceCollectionParentPath(@NotNull Resource resource, @NotNull String bucketName, @NotNull String configName);
 
 }

@@ -20,8 +20,7 @@ package org.apache.sling.caconfig.spi;
 
 import java.util.Collection;
 
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -40,6 +39,6 @@ public interface ConfigurationOverrideProvider {
      * </ul>
      * @return Override strings
      */
-    @Nonnull Collection<String> getOverrideStrings();
+    @NotNull Collection<String> getOverrideStrings();
 
 }

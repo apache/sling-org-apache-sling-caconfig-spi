@@ -20,9 +20,8 @@ package org.apache.sling.caconfig.spi;
 
 import java.util.Map;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -37,21 +36,21 @@ public final class ConfigurationPersistData {
     /**
      * @param properties Property values
      */
-    public ConfigurationPersistData(@Nonnull Map<String, Object> properties) {
+    public ConfigurationPersistData(@NotNull Map<String, Object> properties) {
         this.properties = properties;
     }
 
     /**
      * @return Property values
      */
-    public @Nonnull Map<String, Object> getProperties() {
+    public @NotNull Map<String, Object> getProperties() {
         return properties;
     }
 
     /**
      * @return Resource collection item name. To be set only for resource collection items.
      */
-    public @CheckForNull String getCollectionItemName() {
+    public @Nullable String getCollectionItemName() {
         return collectionItemName;
     }
 

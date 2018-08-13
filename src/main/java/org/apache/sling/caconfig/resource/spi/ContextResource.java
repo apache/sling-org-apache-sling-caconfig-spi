@@ -18,11 +18,10 @@
  */
 package org.apache.sling.caconfig.resource.spi;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -43,7 +42,7 @@ public final class ContextResource {
      *    May be null if the {@link ConfigurationResourceResolvingStrategy} has it's own concept of detecting the matching configuration.
      * @param serviceRanking Service ranking of the context path strategy implementation
      */
-    public ContextResource(@Nonnull Resource resource, String configRef, int serviceRanking) {
+    public ContextResource(@NotNull Resource resource, String configRef, int serviceRanking) {
         this.resource = resource;
         this.configRef = configRef;
         this.serviceRanking = serviceRanking;
@@ -57,14 +56,14 @@ public final class ContextResource {
      * @deprecated Use {@link #ContextResource(Resource, String, int)}
      */
     @Deprecated
-    public ContextResource(@Nonnull Resource resource, String configRef) {
+    public ContextResource(@NotNull Resource resource, String configRef) {
         this(resource, configRef, 0);
     }
 
     /**
      * @return Context root resource
      */
-    public @Nonnull Resource getResource() {
+    public @NotNull Resource getResource() {
         return resource;
     }
 
@@ -72,7 +71,7 @@ public final class ContextResource {
      * @return Config reference (normally a resource path).
      *    May be null if the {@link ConfigurationResourceResolvingStrategy} has it's own concept of detecting the matching configuration.
      */
-    public @CheckForNull String getConfigRef() {
+    public @Nullable String getConfigRef() {
         return configRef;
     }
     

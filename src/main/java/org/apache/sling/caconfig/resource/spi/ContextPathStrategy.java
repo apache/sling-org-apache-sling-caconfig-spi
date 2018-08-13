@@ -20,9 +20,8 @@ package org.apache.sling.caconfig.resource.spi;
 
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.Resource;
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -41,6 +40,6 @@ public interface ContextPathStrategy {
      *      Only one of the parent resources or the resource itself may be included in the result.
      *      If none are found an empty list is returned.
      */
-    @Nonnull Iterator<ContextResource> findContextResources(@Nonnull Resource resource);
+    @NotNull Iterator<ContextResource> findContextResources(@NotNull Resource resource);
 
 }

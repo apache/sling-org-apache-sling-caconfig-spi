@@ -22,8 +22,7 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -40,7 +39,7 @@ public final class ConfigurationMetadata extends AbstractMetadata<ConfigurationM
      * @param propertyMetadata Property metadata
      * @param collection Collection
      */
-    public ConfigurationMetadata(@Nonnull String name,
+    public ConfigurationMetadata(@NotNull String name,
             Collection<PropertyMetadata<?>> propertyMetadata,
             boolean collection) {
         super(name);

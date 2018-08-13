@@ -24,10 +24,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -44,7 +43,7 @@ public final class ConfigurationCollectionPersistData {
     /**
      * @param items Collection of configuration collection items
      */
-    public ConfigurationCollectionPersistData(@Nonnull Collection<ConfigurationPersistData> items) {
+    public ConfigurationCollectionPersistData(@NotNull Collection<ConfigurationPersistData> items) {
         validateItems(items);
         this.items = items;
     }
@@ -69,14 +68,14 @@ public final class ConfigurationCollectionPersistData {
     /**
      * @return Collection of configuration collection items
      */
-    public @Nonnull Collection<ConfigurationPersistData> getItems() {
+    public @NotNull Collection<ConfigurationPersistData> getItems() {
         return items;
     }
     
     /**
      * @return Properties for the configuration collection itself. Does not contain configuration data, but control data e.g. for enabling collection inheritance.
      */
-    public @CheckForNull Map<String, Object> getProperties() {
+    public @Nullable Map<String, Object> getProperties() {
         return properties;
     }
 
