@@ -89,6 +89,7 @@ public class PropertyMetadataTest {
     }
 
     @Test(expected=IllegalArgumentException.class)
+    @SuppressWarnings("null")
     public void testNullNale() {
         new PropertyMetadata<>(null, Object.class);
     }
