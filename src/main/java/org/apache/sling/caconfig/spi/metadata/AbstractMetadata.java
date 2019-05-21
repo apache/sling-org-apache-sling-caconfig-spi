@@ -32,7 +32,7 @@ abstract class AbstractMetadata<T> {
     private String description;
     private Map<String,String> properties;
 
-    @SuppressWarnings({ "null", "unused" })
+    @SuppressWarnings("unused")
     public AbstractMetadata(@NotNull String name) {
         if (name == null) {
             throw new IllegalArgumentException("Invalid name: " + name);
