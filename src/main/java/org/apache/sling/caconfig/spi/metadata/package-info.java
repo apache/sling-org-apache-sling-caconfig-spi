@@ -19,5 +19,5 @@
 /**
  * Defining configuration and parameter metadata for the SPI.
  */
-@org.osgi.annotation.versioning.Version("2.0.1")
+@org.osgi.annotation.versioning.Version("2.0.2")
 package org.apache.sling.caconfig.spi.metadata;

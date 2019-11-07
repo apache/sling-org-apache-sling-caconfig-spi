@@ -19,5 +19,5 @@
 /**
  * SPI for applications hooking into the configuration resource infrastructure for parameterizing and customizing.
  */
-@org.osgi.annotation.versioning.Version("2.1.1")
+@org.osgi.annotation.versioning.Version("2.1.2")
 package org.apache.sling.caconfig.resource.spi;
