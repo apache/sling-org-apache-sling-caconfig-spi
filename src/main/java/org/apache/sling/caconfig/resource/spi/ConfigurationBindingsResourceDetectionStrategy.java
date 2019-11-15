@@ -16,8 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-/**
- * SPI for applications hooking into the configuration resource infrastructure for parameterizing and customizing.
- */
-@org.osgi.annotation.versioning.Version("2.2.0")
 package org.apache.sling.caconfig.resource.spi;
+
+import org.apache.sling.api.resource.Resource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.osgi.annotation.versioning.ConsumerType;
+
+import javax.script.Bindings;
+
+@ConsumerType
+public interface ConfigurationBindingsResourceDetectionStrategy {
+    /**
+     * Detects the resource by looking at the available bindings.
+     * @param bindings Bindings object to use for detecting the correct Resource.
+     * @return Detected Resource or {@code null} if this strategy did not detect an applicable resource.
+     */
+    @Nullable Resource detectResource(@NotNull Bindings bindings);
+}
