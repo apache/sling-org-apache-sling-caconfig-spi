@@ -26,7 +26,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConfigurationPersistDataTest {
@@ -38,7 +38,7 @@ public class ConfigurationPersistDataTest {
     public void testGetProperties() {
         ConfigurationPersistData underTest = new ConfigurationPersistData(props)
                 .collectionItemName("item1");
-        
+
         assertSame(props, underTest.getProperties());
         assertEquals("item1", underTest.getCollectionItemName());
     }

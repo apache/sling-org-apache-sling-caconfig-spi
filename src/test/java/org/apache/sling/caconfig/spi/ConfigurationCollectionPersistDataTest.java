@@ -26,7 +26,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -36,7 +36,7 @@ public class ConfigurationCollectionPersistDataTest {
 
     @Mock
     private Map<String,Object> props;
-    
+
     @Test
     public void testProperties() {
         Collection<ConfigurationPersistData> items = ImmutableList.of(
@@ -46,7 +46,7 @@ public class ConfigurationCollectionPersistDataTest {
 
         ConfigurationCollectionPersistData underTest = new ConfigurationCollectionPersistData(items)
                 .properties(props);
-        
+
         assertSame(items, underTest.getItems());
         assertSame(props, underTest.getProperties());
     }

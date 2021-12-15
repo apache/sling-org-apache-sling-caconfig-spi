@@ -58,7 +58,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
      * @param name Property name
      * @param type Property type
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "null" })
     public PropertyMetadata(@NotNull String name, @NotNull Class<T> type) {
         super(name);
         Class<T> convertedType = (Class<T>)typeToPrimitive(type);
