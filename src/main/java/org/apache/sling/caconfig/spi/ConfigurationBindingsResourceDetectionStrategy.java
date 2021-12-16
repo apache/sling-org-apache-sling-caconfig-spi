@@ -16,21 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.sling.caconfig.resource.spi;
+package org.apache.sling.caconfig.spi;
+
+import javax.script.Bindings;
 
 import org.apache.sling.api.resource.Resource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ConsumerType;
 
-import javax.script.Bindings;
-
+/**
+ * Defines how to look up the current context resource to be used for getting the context-aware configurations
+ * for Sling Scripting (BindingsValuesProvider).
+ */
 @ConsumerType
 public interface ConfigurationBindingsResourceDetectionStrategy {
+
     /**
      * Detects the resource by looking at the available bindings.
      * @param bindings Bindings object to use for detecting the correct Resource.
      * @return Detected Resource or {@code null} if this strategy did not detect an applicable resource.
      */
-    @Nullable Resource detectResource(@NotNull Bindings bindings);
+    @Nullable
+    Resource detectResource(@NotNull Bindings bindings);
+
 }
