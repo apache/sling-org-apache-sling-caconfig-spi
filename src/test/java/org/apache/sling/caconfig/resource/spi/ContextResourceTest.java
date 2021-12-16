@@ -29,13 +29,13 @@ import org.junit.Rule;
 import org.junit.Test;
 
 public class ContextResourceTest {
-    
+
     @Rule
     public SlingContext context = new SlingContext();
-    
+
     private Resource resource1;
     private Resource resource2;
-    
+
     @Before
     public void setUp() {
         resource1 = context.create().resource("/content/test1");

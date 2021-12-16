@@ -32,7 +32,7 @@ public final class ConfigurationPersistData {
 
     private final Map<String,Object> properties;
     private String collectionItemName;
-    
+
     /**
      * @param properties Property values
      */

@@ -39,14 +39,14 @@ abstract class AbstractMetadata<T> {
         }
         this.name = name;
     }
-    
+
     /**
      * @return Parameter name
      */
     public @NotNull String getName() {
         return this.name;
     }
-    
+
     /**
      * @return Label
      */
@@ -87,7 +87,7 @@ abstract class AbstractMetadata<T> {
     public Map<String,String> getProperties() {
         return this.properties;
     }
-    
+
     /**
      * @param properties Further properties for documentation and configuration of behavior in configuration editor.
      * @return this;
@@ -97,7 +97,7 @@ abstract class AbstractMetadata<T> {
         this.properties = properties;
         return (T)this;
     }
-    
+
     @Override
     public String toString() {
         return this.name;

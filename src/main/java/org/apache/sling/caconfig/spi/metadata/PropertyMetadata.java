@@ -42,13 +42,13 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
         double.class,
         boolean.class
     };
-    
+
     /**
      * Set with all types support for property metadata (not including nested configurations).
      */
     public static final Set<Class<?>> SUPPORTED_TYPES = Collections.unmodifiableSet(
             new HashSet<>(Arrays.asList(SUPPORTED_TYPES_ARRAY)));
-    
+
     private final Class<T> type;
     private T defaultValue;
     private ConfigurationMetadata configurationMetadata;
@@ -77,7 +77,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
         this(name, (Class<T>)defaultValue.getClass());
         this.defaultValue = defaultValue;
     }
-    
+
     private static Class<?> typeToPrimitive(Class<?> clazz) {
         if (clazz.isArray()) {
             if (ClassUtils.isPrimitiveWrapper(clazz.getComponentType())) {
@@ -140,7 +140,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
     public T getDefaultValue() {
         return this.defaultValue;
     }
-    
+
     /**
      * @param value Default value if parameter is not set for configuration
      * @return this;
@@ -149,7 +149,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
         this.defaultValue = value;
         return this;
     }
-    
+
     /**
      * @return Number to control property order in configuration editor.
      */
@@ -181,7 +181,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
         this.configurationMetadata = configurationMetadata;
         return this;
     }
-    
+
     /**
      * @return true if this property describes a nested configuration.
      *   In this case it is ensured configuration metadata is present, and the type is ConfigurationMetadata or ConfigurationMetadata[].
@@ -190,7 +190,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
         return configurationMetadata != null
                 && (this.type.equals(ConfigurationMetadata.class) || this.type.equals(ConfigurationMetadata[].class));
     }
-    
+
     @Override
     public String toString() {
         return getName() + "[" + this.type.getSimpleName() + "]";
