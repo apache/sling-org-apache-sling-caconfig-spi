@@ -35,7 +35,7 @@ public class PropertyMetadataTest {
         PropertyMetadata<String> underTest = new PropertyMetadata<>("name1", String.class);
         assertEquals("name1", underTest.getName());
         assertEquals(String.class, underTest.getType());
-        
+
         ConfigurationMetadata configMetadata = new ConfigurationMetadata("test", ImmutableList.<PropertyMetadata<?>>of(), false);
         Map<String,String> props = ImmutableMap.of("p1", "v1");
         underTest.label("label1")
@@ -43,7 +43,7 @@ public class PropertyMetadataTest {
             .defaultValue("value1")
             .properties(props)
             .configurationMetadata(configMetadata);
-        
+
         assertEquals("label1", underTest.getLabel());
         assertEquals("desc1", underTest.getDescription());
         assertEquals("value1", underTest.getDefaultValue());
@@ -99,10 +99,10 @@ public class PropertyMetadataTest {
         PropertyMetadata<String> stringProp = new PropertyMetadata<>("name1", "defValue");
         assertEquals("defValue", stringProp.getDefaultValue());
         assertEquals(String.class, stringProp.getType());
-        
+
         PropertyMetadata<Integer> intProp = new PropertyMetadata<>("name1", 5);
         assertEquals((Integer)5, intProp.getDefaultValue());
         assertEquals(int.class, intProp.getType());
     }
-    
+
 }

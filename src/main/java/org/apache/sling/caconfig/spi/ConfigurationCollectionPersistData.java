@@ -34,12 +34,12 @@ import org.osgi.annotation.versioning.ProviderType;
  */
 @ProviderType
 public final class ConfigurationCollectionPersistData {
-    
+
     private static final Pattern ITEM_NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9_-]+$");
 
     private final Collection<ConfigurationPersistData> items;
     private Map<String,Object> properties;
-    
+
     /**
      * @param items Collection of configuration collection items
      */
@@ -47,9 +47,9 @@ public final class ConfigurationCollectionPersistData {
         validateItems(items);
         this.items = items;
     }
-    
+
     private void validateItems(Collection<ConfigurationPersistData> items) {
-        // ensure unique and valid key names        
+        // ensure unique and valid key names
         Set<String> keyNames = new HashSet<>();
         for (ConfigurationPersistData item : items) {
             if (StringUtils.isBlank(item.getCollectionItemName())) {
@@ -71,7 +71,7 @@ public final class ConfigurationCollectionPersistData {
     public @NotNull Collection<ConfigurationPersistData> getItems() {
         return items;
     }
-    
+
     /**
      * @return Properties for the configuration collection itself. Does not contain configuration data, but control data e.g. for enabling collection inheritance.
      */

@@ -46,7 +46,7 @@ public final class ConfigurationMetadata extends AbstractMetadata<ConfigurationM
         this.propertyMetadata = toMap(propertyMetadata);
         this.collection = collection;
     }
-    
+
     private static Map<String,PropertyMetadata<?>> toMap(Collection<PropertyMetadata<?>> propertyMetadata) {
         Map<String,PropertyMetadata<?>> map = new LinkedHashMap<>();
         for (PropertyMetadata<?> item : propertyMetadata) {
@@ -57,14 +57,14 @@ public final class ConfigurationMetadata extends AbstractMetadata<ConfigurationM
         }
         return map;
     }
-    
+
     /**
      * @return true if configuration is singleton
      */
     public boolean isSingleton() {
         return !collection;
     }
-    
+
     /**
      * @return true if configuration is collection
      */

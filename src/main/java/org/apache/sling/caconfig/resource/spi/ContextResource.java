@@ -30,12 +30,12 @@ import org.osgi.annotation.versioning.ProviderType;
  */
 @ProviderType
 public final class ContextResource {
-    
+
     private final Resource resource;
     private final String configRef;
     private final int serviceRanking;
     private final String key;
-    
+
     /**
      * @param resource Context root resource
      * @param configRef Config reference (normally a resource path).
@@ -74,7 +74,7 @@ public final class ContextResource {
     public @Nullable String getConfigRef() {
         return configRef;
     }
-    
+
     /**
      * @return Service ranking of the context path strategy implementation
      */

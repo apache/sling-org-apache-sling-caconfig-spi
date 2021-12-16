@@ -37,12 +37,12 @@ public class ConfigurationMetadataTest {
         assertEquals("name1", underTest.getName());
         assertTrue(underTest.isSingleton());
         assertFalse(underTest.isCollection());
-        
+
         Map<String,String> props = ImmutableMap.of("p1", "v1");
         underTest.label("label1")
             .description("desc1")
             .properties(props);
-        
+
         assertEquals("label1", underTest.getLabel());
         assertEquals("desc1", underTest.getDescription());
         assertEquals(props, underTest.getProperties());

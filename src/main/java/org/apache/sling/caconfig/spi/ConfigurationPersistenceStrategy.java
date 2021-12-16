@@ -35,52 +35,52 @@ public interface ConfigurationPersistenceStrategy {
 
     /**
      * Allows the strategy to transform the given configuration resource according to it's persistent strategies,
-     * e.g. fetching the data from a child resource instead of the given resource. 
+     * e.g. fetching the data from a child resource instead of the given resource.
      * @param resource Configuration resource
      * @return Transformed configuration resource. If null is returned this strategy does not support the given configuration resource.
      */
     @Nullable Resource getResource(@NotNull Resource resource);
-    
+
     /**
      * Allows the strategy to transform the given configuration resource path according to it's persistent strategies,
-     * e.g. fetching the data from a child resource instead of the given resource. 
+     * e.g. fetching the data from a child resource instead of the given resource.
      * @param resourcePath Configuration resource path or part of it (e.g. config name)
      * @return Transformed configuration resource path. If null is returned this strategy does not support the given configuration resource path.
      */
     @Nullable String getResourcePath(@NotNull String resourcePath);
-    
+
     /**
      * Stores configuration data for a singleton configuration resource.
      * The changes are written using the given resource resolver. They are not committed, this is left to the caller.
      * @param resourceResolver Resource resolver
-     * @param configResourcePath Path to store configuration data to. The resource (and it's parents) may not exist and may have to be created. 
+     * @param configResourcePath Path to store configuration data to. The resource (and it's parents) may not exist and may have to be created.
      * @param data Configuration data to be stored. All existing properties are erased and replaced with the new ones.
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
     boolean persistConfiguration(@NotNull ResourceResolver resourceResolver,
             @NotNull String configResourcePath, @NotNull ConfigurationPersistData data);
-    
+
     /**
      * Stores configuration data for a configuration resource collection.
      * The changes are written using the given resource resolver. They are not committed, this is left to the caller.
      * @param resourceResolver Resource resolver
      * @param configResourceCollectionParentPath Parent path to store configuration collection data to.
-     *      The resource (and it's parents) may not exist and may have to be created. 
+     *      The resource (and it's parents) may not exist and may have to be created.
      * @param data Configuration collection data. All existing collection entries on this context path level are erased and replaced with the new ones.
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
     boolean persistConfigurationCollection(@NotNull ResourceResolver resourceResolver,
             @NotNull String configResourceCollectionParentPath, @NotNull ConfigurationCollectionPersistData data);
- 
+
     /**
      * Delete configuration or configuration collection data from repository using the inner-most context path as reference.
      * @param resourceResolver Resource resolver
-     * @param configResourcePath Path to store configuration data to. The resource (and it's parents) may not exist and may have to be created. 
+     * @param configResourcePath Path to store configuration data to. The resource (and it's parents) may not exist and may have to be created.
      * @return true if the data was delete. false if deleting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
     boolean deleteConfiguration(@NotNull ResourceResolver resourceResolver, @NotNull String configResourcePath);
-    
+
 }
