@@ -18,8 +18,7 @@
  */
 package org.apache.sling.caconfig.spi;
 
-import javax.script.Bindings;
-
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -27,17 +26,17 @@ import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * Defines how to look up the current context resource to be used for getting the context-aware configurations
- * for Sling Scripting (BindingsValuesProvider).
+ * for injecting into Sling Models or for Sling Scripting (BindingsValuesProvider).
  */
 @ConsumerType
-public interface ConfigurationBindingsResourceDetectionStrategy {
+public interface ConfigurationInjectResourceDetectionStrategy {
 
     /**
-     * Detects the resource by looking at the available bindings.
-     * @param bindings Bindings object to use for detecting the correct Resource.
-     * @return Detected Resource or {@code null} if this strategy did not detect an applicable resource.
+     * Detects the resource that is associated with the given request.
+     * @param request Sling request
+     * @return Detected Resource or {@code null} if this strategy did not detect an applicable resources.
      */
     @Nullable
-    Resource detectResource(@NotNull Bindings bindings);
+    Resource detectResource(@NotNull SlingHttpServletRequest request);
 
 }
