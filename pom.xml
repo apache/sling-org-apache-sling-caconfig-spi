@@ -29,19 +29,19 @@
 
     <artifactId>org.apache.sling.caconfig.spi</artifactId>
     <packaging>jar</packaging>
-    <version>1.4.0</version>
+    <version>1.4.1-SNAPSHOT</version>
     <name>Apache Sling Context-Aware Configuration SPI</name>
     <description>Apache Sling Context-Aware Configuration SPI</description>
 
     <properties>
-        <project.build.outputTimestamp>2022-01-03T11:35:11Z</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2022-01-03T11:35:43Z</project.build.outputTimestamp>
     </properties>
 
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-caconfig-spi.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-caconfig-spi.git</developerConnection>
         <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-caconfig-spi.git</url>
-        <tag>org.apache.sling.caconfig.spi-1.4.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
