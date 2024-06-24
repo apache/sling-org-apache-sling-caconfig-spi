@@ -38,6 +38,6 @@ public interface ConfigurationInheritanceStrategy {
      *     First resource is the "closest" match, the other resources may be used to inherit from.
      * @return Inherited resource or null if this strategy does not support the given resources
      */
-    @Nullable Resource getResource(@NotNull Iterator<Resource> configResources);
-
+    @Nullable
+    Resource getResource(@NotNull Iterator<Resource> configResources);
 }

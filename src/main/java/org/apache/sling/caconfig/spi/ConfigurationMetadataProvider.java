@@ -35,13 +35,14 @@ public interface ConfigurationMetadataProvider {
      * Get all configuration names.
      * @return Configuration names
      */
-    @NotNull SortedSet<String> getConfigurationNames();
+    @NotNull
+    SortedSet<String> getConfigurationNames();
 
     /**
      * Get configuration metadata.
      * @param configName Configuration name
      * @return Configuration metadata or null if none exists for the given name.
      */
-    @Nullable ConfigurationMetadata getConfigurationMetadata(String configName);
-
+    @Nullable
+    ConfigurationMetadata getConfigurationMetadata(String configName);
 }

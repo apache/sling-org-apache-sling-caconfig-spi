@@ -18,15 +18,14 @@
  */
 package org.apache.sling.caconfig.spi.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-
 import java.util.Map;
-
-import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class PropertyMetadataTest {
 
@@ -36,13 +35,15 @@ public class PropertyMetadataTest {
         assertEquals("name1", underTest.getName());
         assertEquals(String.class, underTest.getType());
 
-        ConfigurationMetadata configMetadata = new ConfigurationMetadata("test", ImmutableList.<PropertyMetadata<?>>of(), false);
-        Map<String,String> props = ImmutableMap.of("p1", "v1");
-        underTest.label("label1")
-            .description("desc1")
-            .defaultValue("value1")
-            .properties(props)
-            .configurationMetadata(configMetadata);
+        ConfigurationMetadata configMetadata =
+                new ConfigurationMetadata("test", ImmutableList.<PropertyMetadata<?>>of(), false);
+        Map<String, String> props = ImmutableMap.of("p1", "v1");
+        underTest
+                .label("label1")
+                .description("desc1")
+                .defaultValue("value1")
+                .properties(props)
+                .configurationMetadata(configMetadata);
 
         assertEquals("label1", underTest.getLabel());
         assertEquals("desc1", underTest.getDescription());
@@ -83,12 +84,12 @@ public class PropertyMetadataTest {
         new PropertyMetadata<>("name1", ConfigurationMetadata[].class);
     }
 
-    @Test(expected=IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testDisallowedType() {
         new PropertyMetadata<>("name1", Object.class);
     }
 
-    @Test(expected=IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     @SuppressWarnings("null")
     public void testNullNale() {
         new PropertyMetadata<>(null, Object.class);
@@ -101,8 +102,7 @@ public class PropertyMetadataTest {
         assertEquals(String.class, stringProp.getType());
 
         PropertyMetadata<Integer> intProp = new PropertyMetadata<>("name1", 5);
-        assertEquals((Integer)5, intProp.getDefaultValue());
+        assertEquals((Integer) 5, intProp.getDefaultValue());
         assertEquals(int.class, intProp.getType());
     }
-
 }

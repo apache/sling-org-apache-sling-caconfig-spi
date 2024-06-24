@@ -42,6 +42,6 @@ public interface CollectionInheritanceDecider {
      * @param resource The resource
      * @return The decision or {@code null}
      */
-    @Nullable InheritanceDecision decide(@NotNull Resource resource, @NotNull String bucketName);
-
+    @Nullable
+    InheritanceDecision decide(@NotNull Resource resource, @NotNull String bucketName);
 }

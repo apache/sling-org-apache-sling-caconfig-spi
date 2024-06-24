@@ -34,5 +34,4 @@ public final class ConfigurationPersistenceAccessDeniedException extends Configu
     public ConfigurationPersistenceAccessDeniedException(String message) {
         super(message);
     }
-
 }

@@ -38,5 +38,4 @@ public interface ConfigurationInjectResourceDetectionStrategy {
      */
     @Nullable
     Resource detectResource(@NotNull SlingHttpServletRequest request);
-
 }

@@ -24,8 +24,7 @@ package org.apache.sling.caconfig.resource.spi;
  * @since 1.1
  */
 public enum InheritanceDecision {
-
     INCLUDE, // include the resource.
     EXCLUDE, // exclude the resource, but allow others to provide it.
-    BLOCK    // exclude the resource, no one else can provide it.
+    BLOCK // exclude the resource, no one else can provide it.
 }

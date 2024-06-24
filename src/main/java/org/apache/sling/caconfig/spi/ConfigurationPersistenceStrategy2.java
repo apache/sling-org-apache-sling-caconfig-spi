@@ -37,7 +37,8 @@ public interface ConfigurationPersistenceStrategy2 {
      * @param resource Singleton configuration resource
      * @return Transformed configuration resource. If null is returned this strategy does not support the given configuration resource.
      */
-    @Nullable Resource getResource(@NotNull Resource resource);
+    @Nullable
+    Resource getResource(@NotNull Resource resource);
 
     /**
      * Allows the strategy to transform the given configuration resource according to it's persistent strategies,
@@ -45,7 +46,8 @@ public interface ConfigurationPersistenceStrategy2 {
      * @param resource Configuration collection parent resource
      * @return Transformed configuration resource. If null is returned this strategy does not support the given configuration resource.
      */
-    @Nullable Resource getCollectionParentResource(@NotNull Resource resource);
+    @Nullable
+    Resource getCollectionParentResource(@NotNull Resource resource);
 
     /**
      * Allows the strategy to transform the given configuration resource according to it's persistent strategies,
@@ -53,7 +55,8 @@ public interface ConfigurationPersistenceStrategy2 {
      * @param resource Configuration collection item resource
      * @return Transformed configuration resource. If null is returned this strategy does not support the given configuration resource.
      */
-    @Nullable Resource getCollectionItemResource(@NotNull Resource resource);
+    @Nullable
+    Resource getCollectionItemResource(@NotNull Resource resource);
 
     /**
      * Allows the strategy to transform the given configuration resource path according to it's persistent strategies,
@@ -61,7 +64,8 @@ public interface ConfigurationPersistenceStrategy2 {
      * @param resourcePath Configuration resource path (full path)
      * @return Transformed configuration resource path. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getResourcePath(@NotNull String resourcePath);
+    @Nullable
+    String getResourcePath(@NotNull String resourcePath);
 
     /**
      * Allows the strategy to transform the given configuration resource path according to it's persistent strategies,
@@ -69,7 +73,8 @@ public interface ConfigurationPersistenceStrategy2 {
      * @param resourcePath Configuration collection parent resource path (full path)
      * @return Transformed configuration resource path. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getCollectionParentResourcePath(@NotNull String resourcePath);
+    @Nullable
+    String getCollectionParentResourcePath(@NotNull String resourcePath);
 
     /**
      * Allows the strategy to transform the given configuration resource path according to it's persistent strategies,
@@ -77,7 +82,8 @@ public interface ConfigurationPersistenceStrategy2 {
      * @param resourcePath Configuration collection item resource path (full path)
      * @return Transformed configuration resource path. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getCollectionItemResourcePath(@NotNull String resourcePath);
+    @Nullable
+    String getCollectionItemResourcePath(@NotNull String resourcePath);
 
     /**
      * Allows the strategy to transform the given configuration name for nested configurations according to it's persistent strategies,
@@ -87,7 +93,8 @@ public interface ConfigurationPersistenceStrategy2 {
      *     This can be used to detect if the persistence strategy supports the configuration location. If null it should be assumed that it matches.
      * @return Transformed configuration name. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getConfigName(@NotNull String configName, @Nullable String relatedConfigPath);
+    @Nullable
+    String getConfigName(@NotNull String configName, @Nullable String relatedConfigPath);
 
     /**
      * Allows the strategy to transform the given configuration name for nested configurations according to it's persistent strategies,
@@ -97,7 +104,8 @@ public interface ConfigurationPersistenceStrategy2 {
      *     This can be used to detect if the persistence strategy supports the configuration location. If null it should be assumed that it matches.
      * @return Transformed configuration name. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getCollectionParentConfigName(@NotNull String configName, @Nullable String relatedConfigPath);
+    @Nullable
+    String getCollectionParentConfigName(@NotNull String configName, @Nullable String relatedConfigPath);
 
     /**
      * Allows the strategy to transform the given configuration name for nested configurations according to it's persistent strategies,
@@ -107,7 +115,8 @@ public interface ConfigurationPersistenceStrategy2 {
      *     This can be used to detect if the persistence strategy supports the configuration location. If null it should be assumed that it matches.
      * @return Transformed configuration name. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getCollectionItemConfigName(@NotNull String configName, @Nullable String relatedConfigPath);
+    @Nullable
+    String getCollectionItemConfigName(@NotNull String configName, @Nullable String relatedConfigPath);
 
     /**
      * Stores configuration data for a singleton configuration resource.
@@ -118,8 +127,10 @@ public interface ConfigurationPersistenceStrategy2 {
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean persistConfiguration(@NotNull ResourceResolver resourceResolver,
-            @NotNull String configResourcePath, @NotNull ConfigurationPersistData data);
+    boolean persistConfiguration(
+            @NotNull ResourceResolver resourceResolver,
+            @NotNull String configResourcePath,
+            @NotNull ConfigurationPersistData data);
 
     /**
      * Stores configuration data for a configuration resource collection.
@@ -131,8 +142,10 @@ public interface ConfigurationPersistenceStrategy2 {
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean persistConfigurationCollection(@NotNull ResourceResolver resourceResolver,
-            @NotNull String configResourceCollectionParentPath, @NotNull ConfigurationCollectionPersistData data);
+    boolean persistConfigurationCollection(
+            @NotNull ResourceResolver resourceResolver,
+            @NotNull String configResourceCollectionParentPath,
+            @NotNull ConfigurationCollectionPersistData data);
 
     /**
      * Delete configuration or configuration collection data from repository using the inner-most context path as reference.
@@ -142,5 +155,4 @@ public interface ConfigurationPersistenceStrategy2 {
      *      (in case of error throw an exception).
      */
     boolean deleteConfiguration(@NotNull ResourceResolver resourceResolver, @NotNull String configResourcePath);
-
 }

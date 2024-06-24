@@ -47,7 +47,9 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Configuration resource or {@code null} if this strategy did not found matching resources.
      */
-    @Nullable Resource getResource(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
+    @Nullable
+    Resource getResource(
+            @NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get a collection of context-aware configuration resources defined by the given configuration name.
@@ -57,7 +59,9 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Collection of configuration resources or {@code null} if this strategy did not found matching resources.
      */
-    @Nullable Collection<Resource> getResourceCollection(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
+    @Nullable
+    Collection<Resource> getResourceCollection(
+            @NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get a context-aware singleton configuration resource inheritance chain defined by the given configuration name.
@@ -68,7 +72,9 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Configuration resource inheritance chain or {@code null} if this strategy did not found matching resources.
      */
-    @Nullable Iterator<Resource> getResourceInheritanceChain(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
+    @Nullable
+    Iterator<Resource> getResourceInheritanceChain(
+            @NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get a collection of context-aware configuration resource inheritance chains defined by the given configuration name.
@@ -79,7 +85,9 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Collection of configuration resource inheritance chains or {@code null} if this strategy did not found matching resources.
      */
-    @Nullable Collection<Iterator<Resource>> getResourceCollectionInheritanceChain(@NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
+    @Nullable
+    Collection<Iterator<Resource>> getResourceCollectionInheritanceChain(
+            @NotNull Resource resource, @NotNull Collection<String> bucketNames, @NotNull String configName);
 
     /**
      * Get the configuration resource path for storing configuration data for the given context resource and configuration name.
@@ -92,7 +100,8 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Resource path, or null if no matching configuration resource path can be determined
      */
-    @Nullable String getResourcePath(@NotNull Resource resource, @NotNull String bucketName, @NotNull String configName);
+    @Nullable
+    String getResourcePath(@NotNull Resource resource, @NotNull String bucketName, @NotNull String configName);
 
     /**
      * Get the configuration resource collection parent path for storing configuration data for the given context resource and configuration name.
@@ -105,6 +114,7 @@ public interface ConfigurationResourceResolvingStrategy {
      * @param configName Configuration name or relative path.
      * @return Resource path, or null if no matching configuration resource path can be determined
      */
-    @Nullable String getResourceCollectionParentPath(@NotNull Resource resource, @NotNull String bucketName, @NotNull String configName);
-
+    @Nullable
+    String getResourceCollectionParentPath(
+            @NotNull Resource resource, @NotNull String bucketName, @NotNull String configName);
 }

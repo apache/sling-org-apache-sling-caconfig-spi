@@ -18,9 +18,6 @@
  */
 package org.apache.sling.caconfig.spi;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-
 import java.util.Map;
 
 import org.junit.Test;
@@ -28,19 +25,20 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+
 @RunWith(MockitoJUnitRunner.class)
 public class ConfigurationPersistDataTest {
 
     @Mock
-    private Map<String,Object> props;
+    private Map<String, Object> props;
 
     @Test
     public void testGetProperties() {
-        ConfigurationPersistData underTest = new ConfigurationPersistData(props)
-                .collectionItemName("item1");
+        ConfigurationPersistData underTest = new ConfigurationPersistData(props).collectionItemName("item1");
 
         assertSame(props, underTest.getProperties());
         assertEquals("item1", underTest.getCollectionItemName());
     }
-
 }

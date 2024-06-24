@@ -30,7 +30,7 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public final class ConfigurationPersistData {
 
-    private final Map<String,Object> properties;
+    private final Map<String, Object> properties;
     private String collectionItemName;
 
     /**
@@ -62,5 +62,4 @@ public final class ConfigurationPersistData {
         this.collectionItemName = value;
         return this;
     }
-
 }

@@ -18,15 +18,15 @@
  */
 package org.apache.sling.caconfig.resource.spi;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.testing.mock.sling.junit.SlingContext;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ContextResourceTest {
 
@@ -52,15 +52,17 @@ public class ContextResourceTest {
 
     @Test
     public void testEquals() {
-        assertTrue(new ContextResource(resource1, "/conf/test", 0).equals(new ContextResource(resource1, "/conf/test", 10)));
+        assertTrue(new ContextResource(resource1, "/conf/test", 0)
+                .equals(new ContextResource(resource1, "/conf/test", 10)));
         assertTrue(new ContextResource(resource1, null, 0).equals(new ContextResource(resource1, null, 0)));
     }
 
     @Test
     public void testNotEquals() {
-        assertFalse(new ContextResource(resource1, "/conf/test", 0).equals(new ContextResource(resource2, "/conf/test", 0)));
-        assertFalse(new ContextResource(resource1, "/conf/test1", 0).equals(new ContextResource(resource1, "/conf/test2", 0)));
+        assertFalse(new ContextResource(resource1, "/conf/test", 0)
+                .equals(new ContextResource(resource2, "/conf/test", 0)));
+        assertFalse(new ContextResource(resource1, "/conf/test1", 0)
+                .equals(new ContextResource(resource1, "/conf/test2", 0)));
         assertFalse(new ContextResource(resource1, null, 0).equals(new ContextResource(resource1, "/conf/test", 0)));
     }
-
 }
