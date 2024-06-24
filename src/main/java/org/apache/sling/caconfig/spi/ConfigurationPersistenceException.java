@@ -34,5 +34,4 @@ public class ConfigurationPersistenceException extends RuntimeException {
     public ConfigurationPersistenceException(String message) {
         super(message);
     }
-
 }

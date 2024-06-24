@@ -18,30 +18,28 @@
  */
 package org.apache.sling.caconfig.spi.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Map;
-
-import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ConfigurationMetadataTest {
 
     @Test
     public void testProps() {
-        ConfigurationMetadata underTest = new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(), false);
+        ConfigurationMetadata underTest =
+                new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(), false);
         assertEquals("name1", underTest.getName());
         assertTrue(underTest.isSingleton());
         assertFalse(underTest.isCollection());
 
-        Map<String,String> props = ImmutableMap.of("p1", "v1");
-        underTest.label("label1")
-            .description("desc1")
-            .properties(props);
+        Map<String, String> props = ImmutableMap.of("p1", "v1");
+        underTest.label("label1").description("desc1").properties(props);
 
         assertEquals("label1", underTest.getLabel());
         assertEquals("desc1", underTest.getDescription());
@@ -50,7 +48,8 @@ public class ConfigurationMetadataTest {
 
     @Test
     public void testCollectionProps() {
-        ConfigurationMetadata underTest = new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(), true);
+        ConfigurationMetadata underTest =
+                new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(), true);
         assertEquals("name1", underTest.getName());
         assertFalse(underTest.isSingleton());
         assertTrue(underTest.isCollection());
@@ -58,9 +57,11 @@ public class ConfigurationMetadataTest {
 
     @Test
     public void testPropertyMap() {
-        ConfigurationMetadata underTest = new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(
-                new PropertyMetadata<>("prop1", "devValue"),
-                new PropertyMetadata<>("prop2", 5)), false);
+        ConfigurationMetadata underTest = new ConfigurationMetadata(
+                "name1",
+                ImmutableList.<PropertyMetadata<?>>of(
+                        new PropertyMetadata<>("prop1", "devValue"), new PropertyMetadata<>("prop2", 5)),
+                false);
         assertEquals(2, underTest.getPropertyMetadata().size());
         assertTrue(underTest.getPropertyMetadata().containsKey("prop1"));
         assertTrue(underTest.getPropertyMetadata().containsKey("prop2"));
@@ -68,9 +69,10 @@ public class ConfigurationMetadataTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testDuplicateKey() {
-        new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(
-                new PropertyMetadata<>("prop1", "devValue"),
-                new PropertyMetadata<>("prop1", 5)), false);
+        new ConfigurationMetadata(
+                "name1",
+                ImmutableList.<PropertyMetadata<?>>of(
+                        new PropertyMetadata<>("prop1", "devValue"), new PropertyMetadata<>("prop1", 5)),
+                false);
     }
-
 }

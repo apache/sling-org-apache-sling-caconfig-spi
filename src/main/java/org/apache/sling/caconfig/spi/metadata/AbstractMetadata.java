@@ -30,7 +30,7 @@ abstract class AbstractMetadata<T> {
     private final String name;
     private String label;
     private String description;
-    private Map<String,String> properties;
+    private Map<String, String> properties;
 
     @SuppressWarnings("unused")
     public AbstractMetadata(@NotNull String name) {
@@ -61,7 +61,7 @@ abstract class AbstractMetadata<T> {
     @SuppressWarnings("unchecked")
     public T label(String label) {
         this.label = label;
-        return (T)this;
+        return (T) this;
     }
 
     /**
@@ -78,13 +78,13 @@ abstract class AbstractMetadata<T> {
     @SuppressWarnings("unchecked")
     public T description(String description) {
         this.description = description;
-        return (T)this;
+        return (T) this;
     }
 
     /**
      * @return Further properties for documentation and configuration of behavior in configuration editor.
      */
-    public Map<String,String> getProperties() {
+    public Map<String, String> getProperties() {
         return this.properties;
     }
 
@@ -93,14 +93,13 @@ abstract class AbstractMetadata<T> {
      * @return this;
      */
     @SuppressWarnings("unchecked")
-    public T properties(Map<String,String> properties) {
+    public T properties(Map<String, String> properties) {
         this.properties = properties;
-        return (T)this;
+        return (T) this;
     }
 
     @Override
     public String toString() {
         return this.name;
     }
-
 }

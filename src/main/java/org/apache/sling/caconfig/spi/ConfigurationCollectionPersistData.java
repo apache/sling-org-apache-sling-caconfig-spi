@@ -38,7 +38,7 @@ public final class ConfigurationCollectionPersistData {
     private static final Pattern ITEM_NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9_-]+$");
 
     private final Collection<ConfigurationPersistData> items;
-    private Map<String,Object> properties;
+    private Map<String, Object> properties;
 
     /**
      * @param items Collection of configuration collection items
@@ -56,10 +56,12 @@ public final class ConfigurationCollectionPersistData {
                 throw new ConfigurationPersistenceException("Collection item name is missing.");
             }
             if (!ITEM_NAME_PATTERN.matcher(item.getCollectionItemName()).matches()) {
-                throw new ConfigurationPersistenceException("Invalid collection item name: " + item.getCollectionItemName());
+                throw new ConfigurationPersistenceException(
+                        "Invalid collection item name: " + item.getCollectionItemName());
             }
             if (keyNames.contains(item.getCollectionItemName())) {
-                throw new ConfigurationPersistenceException("Duplicate collection item name: " + item.getCollectionItemName());
+                throw new ConfigurationPersistenceException(
+                        "Duplicate collection item name: " + item.getCollectionItemName());
             }
             keyNames.add(item.getCollectionItemName());
         }
@@ -87,5 +89,4 @@ public final class ConfigurationCollectionPersistData {
         this.properties = value;
         return this;
     }
-
 }

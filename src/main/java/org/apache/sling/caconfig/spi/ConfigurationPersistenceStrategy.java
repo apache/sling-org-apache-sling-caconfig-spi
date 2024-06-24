@@ -39,7 +39,8 @@ public interface ConfigurationPersistenceStrategy {
      * @param resource Configuration resource
      * @return Transformed configuration resource. If null is returned this strategy does not support the given configuration resource.
      */
-    @Nullable Resource getResource(@NotNull Resource resource);
+    @Nullable
+    Resource getResource(@NotNull Resource resource);
 
     /**
      * Allows the strategy to transform the given configuration resource path according to it's persistent strategies,
@@ -47,7 +48,8 @@ public interface ConfigurationPersistenceStrategy {
      * @param resourcePath Configuration resource path or part of it (e.g. config name)
      * @return Transformed configuration resource path. If null is returned this strategy does not support the given configuration resource path.
      */
-    @Nullable String getResourcePath(@NotNull String resourcePath);
+    @Nullable
+    String getResourcePath(@NotNull String resourcePath);
 
     /**
      * Stores configuration data for a singleton configuration resource.
@@ -58,8 +60,10 @@ public interface ConfigurationPersistenceStrategy {
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean persistConfiguration(@NotNull ResourceResolver resourceResolver,
-            @NotNull String configResourcePath, @NotNull ConfigurationPersistData data);
+    boolean persistConfiguration(
+            @NotNull ResourceResolver resourceResolver,
+            @NotNull String configResourcePath,
+            @NotNull ConfigurationPersistData data);
 
     /**
      * Stores configuration data for a configuration resource collection.
@@ -71,8 +75,10 @@ public interface ConfigurationPersistenceStrategy {
      * @return true if the data was persisted. false if persisting the data was not accepted by this persistence strategy
      *      (in case of error throw an exception).
      */
-    boolean persistConfigurationCollection(@NotNull ResourceResolver resourceResolver,
-            @NotNull String configResourceCollectionParentPath, @NotNull ConfigurationCollectionPersistData data);
+    boolean persistConfigurationCollection(
+            @NotNull ResourceResolver resourceResolver,
+            @NotNull String configResourceCollectionParentPath,
+            @NotNull ConfigurationCollectionPersistData data);
 
     /**
      * Delete configuration or configuration collection data from repository using the inner-most context path as reference.
@@ -82,5 +88,4 @@ public interface ConfigurationPersistenceStrategy {
      *      (in case of error throw an exception).
      */
     boolean deleteConfiguration(@NotNull ResourceResolver resourceResolver, @NotNull String configResourcePath);
-
 }

@@ -36,18 +36,14 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
 
     // these are all types supported for fields of annotation classes (plus class which indicates nested configurations)
     private static final Class<?>[] SUPPORTED_TYPES_ARRAY = {
-        String.class,
-        int.class,
-        long.class,
-        double.class,
-        boolean.class
+        String.class, int.class, long.class, double.class, boolean.class
     };
 
     /**
      * Set with all types support for property metadata (not including nested configurations).
      */
-    public static final Set<Class<?>> SUPPORTED_TYPES = Collections.unmodifiableSet(
-            new HashSet<>(Arrays.asList(SUPPORTED_TYPES_ARRAY)));
+    public static final Set<Class<?>> SUPPORTED_TYPES =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(SUPPORTED_TYPES_ARRAY)));
 
     private final Class<T> type;
     private T defaultValue;
@@ -58,10 +54,10 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
      * @param name Property name
      * @param type Property type
      */
-    @SuppressWarnings({ "unchecked", "null" })
+    @SuppressWarnings({"unchecked", "null"})
     public PropertyMetadata(@NotNull String name, @NotNull Class<T> type) {
         super(name);
-        Class<T> convertedType = (Class<T>)typeToPrimitive(type);
+        Class<T> convertedType = (Class<T>) typeToPrimitive(type);
         if (!isSupportedType(convertedType)) {
             throw new IllegalArgumentException("Invalid type for property '" + name + "': " + type);
         }
@@ -74,7 +70,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
      */
     @SuppressWarnings("unchecked")
     public PropertyMetadata(@NotNull String name, @NotNull T defaultValue) {
-        this(name, (Class<T>)defaultValue.getClass());
+        this(name, (Class<T>) defaultValue.getClass());
         this.defaultValue = defaultValue;
     }
 
@@ -94,8 +90,7 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
                     return boolean[].class;
                 }
             }
-        }
-        else if (ClassUtils.isPrimitiveWrapper(clazz)) {
+        } else if (ClassUtils.isPrimitiveWrapper(clazz)) {
             if (clazz == Integer.class) {
                 return int.class;
             }
@@ -195,5 +190,4 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
     public String toString() {
         return getName() + "[" + this.type.getSimpleName() + "]";
     }
-
 }

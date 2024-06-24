@@ -39,6 +39,6 @@ public interface ConfigurationOverrideProvider {
      * </ul>
      * @return Override strings
      */
-    @NotNull Collection<String> getOverrideStrings();
-
+    @NotNull
+    Collection<String> getOverrideStrings();
 }

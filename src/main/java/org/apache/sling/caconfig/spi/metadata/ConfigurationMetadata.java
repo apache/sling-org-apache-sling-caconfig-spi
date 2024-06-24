@@ -31,7 +31,7 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public final class ConfigurationMetadata extends AbstractMetadata<ConfigurationMetadata> {
 
-    private final Map<String,PropertyMetadata<?>> propertyMetadata;
+    private final Map<String, PropertyMetadata<?>> propertyMetadata;
     private final boolean collection;
 
     /**
@@ -39,16 +39,15 @@ public final class ConfigurationMetadata extends AbstractMetadata<ConfigurationM
      * @param propertyMetadata Property metadata
      * @param collection Collection
      */
-    public ConfigurationMetadata(@NotNull String name,
-            Collection<PropertyMetadata<?>> propertyMetadata,
-            boolean collection) {
+    public ConfigurationMetadata(
+            @NotNull String name, Collection<PropertyMetadata<?>> propertyMetadata, boolean collection) {
         super(name);
         this.propertyMetadata = toMap(propertyMetadata);
         this.collection = collection;
     }
 
-    private static Map<String,PropertyMetadata<?>> toMap(Collection<PropertyMetadata<?>> propertyMetadata) {
-        Map<String,PropertyMetadata<?>> map = new LinkedHashMap<>();
+    private static Map<String, PropertyMetadata<?>> toMap(Collection<PropertyMetadata<?>> propertyMetadata) {
+        Map<String, PropertyMetadata<?>> map = new LinkedHashMap<>();
         for (PropertyMetadata<?> item : propertyMetadata) {
             if (map.containsKey(item.getName())) {
                 throw new IllegalArgumentException("Duplicate property name: " + item.getName());
@@ -75,8 +74,7 @@ public final class ConfigurationMetadata extends AbstractMetadata<ConfigurationM
     /**
      * @return Configuration properties
      */
-    public Map<String,PropertyMetadata<?>> getPropertyMetadata() {
+    public Map<String, PropertyMetadata<?>> getPropertyMetadata() {
         return this.propertyMetadata;
     }
-
 }

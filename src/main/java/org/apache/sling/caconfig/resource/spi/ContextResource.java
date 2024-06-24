@@ -90,9 +90,8 @@ public final class ContextResource {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof ContextResource) {
-            return StringUtils.equals(key, ((ContextResource)obj).key);
+            return StringUtils.equals(key, ((ContextResource) obj).key);
         }
         return false;
     }
-
 }
