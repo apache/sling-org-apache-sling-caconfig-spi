@@ -18,10 +18,9 @@
  */
 package org.apache.sling.caconfig.spi.metadata;
 
+import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -32,13 +31,12 @@ public class ConfigurationMetadataTest {
 
     @Test
     public void testProps() {
-        ConfigurationMetadata underTest =
-                new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(), false);
+        ConfigurationMetadata underTest = new ConfigurationMetadata("name1", List.<PropertyMetadata<?>>of(), false);
         assertEquals("name1", underTest.getName());
         assertTrue(underTest.isSingleton());
         assertFalse(underTest.isCollection());
 
-        Map<String, String> props = ImmutableMap.of("p1", "v1");
+        Map<String, String> props = Map.of("p1", "v1");
         underTest.label("label1").description("desc1").properties(props);
 
         assertEquals("label1", underTest.getLabel());
@@ -48,8 +46,7 @@ public class ConfigurationMetadataTest {
 
     @Test
     public void testCollectionProps() {
-        ConfigurationMetadata underTest =
-                new ConfigurationMetadata("name1", ImmutableList.<PropertyMetadata<?>>of(), true);
+        ConfigurationMetadata underTest = new ConfigurationMetadata("name1", List.<PropertyMetadata<?>>of(), true);
         assertEquals("name1", underTest.getName());
         assertFalse(underTest.isSingleton());
         assertTrue(underTest.isCollection());
@@ -59,7 +56,7 @@ public class ConfigurationMetadataTest {
     public void testPropertyMap() {
         ConfigurationMetadata underTest = new ConfigurationMetadata(
                 "name1",
-                ImmutableList.<PropertyMetadata<?>>of(
+                List.<PropertyMetadata<?>>of(
                         new PropertyMetadata<>("prop1", "devValue"), new PropertyMetadata<>("prop2", 5)),
                 false);
         assertEquals(2, underTest.getPropertyMetadata().size());
@@ -71,7 +68,7 @@ public class ConfigurationMetadataTest {
     public void testDuplicateKey() {
         new ConfigurationMetadata(
                 "name1",
-                ImmutableList.<PropertyMetadata<?>>of(
+                List.<PropertyMetadata<?>>of(
                         new PropertyMetadata<>("prop1", "devValue"), new PropertyMetadata<>("prop1", 5)),
                 false);
     }

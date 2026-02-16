@@ -19,10 +19,9 @@
 package org.apache.sling.caconfig.spi;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -38,10 +37,10 @@ public class ConfigurationCollectionPersistDataTest {
 
     @Test
     public void testProperties() {
-        Collection<ConfigurationPersistData> items = ImmutableList.of(
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item1"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item2"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item3"));
+        Collection<ConfigurationPersistData> items = List.of(
+                new ConfigurationPersistData(Map.of()).collectionItemName("item1"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item2"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item3"));
 
         ConfigurationCollectionPersistData underTest = new ConfigurationCollectionPersistData(items).properties(props);
 
@@ -51,30 +50,31 @@ public class ConfigurationCollectionPersistDataTest {
 
     @Test(expected = ConfigurationPersistenceException.class)
     public void testItemsDuplicateKeys() {
-        Collection<ConfigurationPersistData> itemList = ImmutableList.of(
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item1"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item2"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item1"));
+        Collection<ConfigurationPersistData> itemList = List.of(
+                new ConfigurationPersistData(Map.of()).collectionItemName("item1"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item2"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item1"));
 
         new ConfigurationCollectionPersistData(itemList);
     }
 
     @Test(expected = ConfigurationPersistenceException.class)
+    @SuppressWarnings("null")
     public void testItemsMissingItemName() {
-        Collection<ConfigurationPersistData> itemList = ImmutableList.of(
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item1"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item2"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()));
+        Collection<ConfigurationPersistData> itemList = List.of(
+                new ConfigurationPersistData(Map.of()).collectionItemName("item1"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item2"),
+                new ConfigurationPersistData(Map.of()));
 
         new ConfigurationCollectionPersistData(itemList);
     }
 
     @Test(expected = ConfigurationPersistenceException.class)
     public void testItemsInvalidItemNAme() {
-        Collection<ConfigurationPersistData> itemList = ImmutableList.of(
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item1"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item2"),
-                new ConfigurationPersistData(ImmutableMap.<String, Object>of()).collectionItemName("item #1"));
+        Collection<ConfigurationPersistData> itemList = List.of(
+                new ConfigurationPersistData(Map.of()).collectionItemName("item1"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item2"),
+                new ConfigurationPersistData(Map.of()).collectionItemName("item #1"));
 
         new ConfigurationCollectionPersistData(itemList);
     }
