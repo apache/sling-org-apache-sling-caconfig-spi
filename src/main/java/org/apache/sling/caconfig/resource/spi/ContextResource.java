@@ -18,7 +18,7 @@
  */
 package org.apache.sling.caconfig.resource.spi;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.apache.sling.api.resource.Resource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -90,7 +90,7 @@ public final class ContextResource {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof ContextResource) {
-            return StringUtils.equals(key, ((ContextResource) obj).key);
+            return Strings.CS.equals(key, ((ContextResource) obj).key);
         }
         return false;
     }
