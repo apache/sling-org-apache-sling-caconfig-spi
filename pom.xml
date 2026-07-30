@@ -28,7 +28,7 @@
     </parent>
 
     <artifactId>org.apache.sling.caconfig.spi</artifactId>
-    <version>1.4.1-SNAPSHOT</version>
+    <version>1.5.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Apache Sling Context-Aware Configuration SPI</name>
     <description>Apache Sling Context-Aware Configuration SPI</description>
