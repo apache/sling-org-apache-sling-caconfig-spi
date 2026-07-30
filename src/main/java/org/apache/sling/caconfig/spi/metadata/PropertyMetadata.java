@@ -50,6 +50,8 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
     private ConfigurationMetadata configurationMetadata;
     private int order;
 
+    private boolean encrypted;
+
     /**
      * @param name Property name
      * @param type Property type
@@ -158,6 +160,24 @@ public final class PropertyMetadata<T> extends AbstractMetadata<PropertyMetadata
      */
     public PropertyMetadata<T> order(int value) {
         this.order = value;
+        return this;
+    }
+
+    /**
+     * @return {@code true} if this property is encrypted
+     * @since 2.1.0 (Bundle version 1.5.0)
+     */
+    public boolean isEncrypted() {
+        return this.encrypted;
+    }
+
+    /**
+     * @param value {@code true} if this property is encrypted
+     * @return this
+     * @since 2.1.0 (Bundle version 1.5.0)
+     */
+    public PropertyMetadata<T> encrypted(boolean encrypted) {
+        this.encrypted = encrypted;
         return this;
     }
 
